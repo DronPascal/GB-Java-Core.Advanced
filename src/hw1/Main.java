@@ -27,7 +27,7 @@ public class Main {
         obstacles[0] = new Wall("бордюр", 0.2);
         obstacles[1] = new Treadmill("тропинка", 10);
         obstacles[2] = new Wall("забор", 0.5);
-        obstacles[3] = new Treadmill("сухой водоканал", 200);
+        obstacles[3] = new Treadmill("осушенный водоканал", 200);
         obstacles[4] = new Wall("высокий забор", 5);
 
         // В условиях запрета объединения Cat, Human и Robot в одну иерархию
