@@ -59,7 +59,7 @@ public class Cat implements Overcomable {
             System.out.println(ClassName.I.up() + " " + name + " успешно перепрыгнул " + height + "м.");
             return true;
         } else {
-            System.out.println(ClassName.I.up() + " " + name + " не смог  перепрыгнуть. Он сильно устал. Он выбывает из гонки.");
+            System.out.println(ClassName.I.up() + " " + name + " не смог  перепрыгнуть. Он выбывает из гонки.");
             isTired = true;
         }
         return false;
