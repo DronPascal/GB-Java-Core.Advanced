@@ -32,8 +32,6 @@ public class Main {
                 {"13", "14", "15", "16"}
         };
         test(strMatNotInt);
-
-
     }
 
     static void test(String[][] strMat){
@@ -49,6 +47,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        // Благодаря задержке переносы строк ставятся между каждым StackTrace
         System.out.println();
     }
 
