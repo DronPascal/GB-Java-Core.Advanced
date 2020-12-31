@@ -1,6 +1,5 @@
 package hw3;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
 
 public class Main {
@@ -19,14 +18,11 @@ public class Main {
                 "память", "свобода", "договор", "дерево", "банк",
                 "свобода", "музыка", "большинство", "сцена", "музыка"
         };
-        List<String> wordsList = new ArrayList<>();
-        wordsList = Arrays.asList(words);
+        List<String> wordsList = Arrays.asList(words);
         System.out.println("Все слова: " + wordsList);
 
         Set<String> wordsSet = new HashSet<>(wordsList);
         System.out.println("Уникальные слова: " + wordsSet);
-
-        List<Integer> wordsNumber = new ArrayList<>(wordsSet.size());
 
         for (String word : wordsSet) {
             int number = Collections.frequency(wordsList, word);
