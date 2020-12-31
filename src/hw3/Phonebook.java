@@ -18,14 +18,19 @@ public class Phonebook {
         return new HashSet<>(Arrays.asList(""));
     }
 
-    public void add(String surname, String phone) {
+    public boolean add(String surname, String phone) {
         if (phonebook.containsKey(surname)) {
             HashSet<String> numberSet = phonebook.get(surname);
-            numberSet.add(phone);
+            if (!numberSet.contains(phone)) {
+                numberSet.add(phone);
+            } else {
+                return false;
+            }
         } else {
             HashSet<String> numberSet = new HashSet<>(1);
             numberSet.add(phone);
             phonebook.put(surname, numberSet);
         }
+        return true;
     }
 }
