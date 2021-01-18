@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -18,8 +17,8 @@ public class Controller {
         messagesList =
                 FXCollections.observableArrayList();
         chatList.setItems(messagesList);
+        chatList.setEditable(false);
     }
-
     @FXML
     private ListView<String> chatList;
 
@@ -42,6 +41,7 @@ public class Controller {
     }
 
     public void sendMessage(String msg) {
+        if (msg.isEmpty()) return;
         String username = "username";
         Message message = new Message(username, msg);
         addMsg(message);
