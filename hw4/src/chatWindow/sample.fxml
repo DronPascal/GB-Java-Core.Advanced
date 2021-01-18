@@ -11,18 +11,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatWindow.Controller">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatWindow.Controller">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
             <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
                <content>
                   <ListView fx:id="chatList" />
                </content>
             </ScrollPane>
-            <HBox VBox.vgrow="NEVER">
+            <HBox VBox.vgrow="ALWAYS">
                <children>
-                  <TextField fx:id="messageField" minHeight="30.0" minWidth="100.0" onKeyPressed="#onMsgFldKeyPressed" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="messageField" minHeight="30.0" onKeyPressed="#onMsgFldKeyPressed" HBox.hgrow="SOMETIMES" />
                   <Button fx:id="sendButton" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#onSendBtnClicked" text="Button" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
@@ -30,7 +30,7 @@
       </VBox>
    </center>
    <left>
-      <VBox disable="true" maxWidth="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="0.0" visible="false" BorderPane.alignment="CENTER" />
+      <VBox disable="true" visible="false" BorderPane.alignment="CENTER" />
    </left>
    <top>
       <MenuBar disable="true" visible="false" BorderPane.alignment="CENTER">
