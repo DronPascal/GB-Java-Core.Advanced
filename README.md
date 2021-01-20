@@ -29,11 +29,15 @@ static  final  int HALF = size /  2;
 float[] arr =  new  float[size];`
 2) Заполняют этот массив единицами.
 3) Засекают время выполнения: 
+
 `long a = System.currentTimeMillis()`
 4) Проходят по всему массиву и для каждой ячейки считают новое значение по формуле:
+
 `arr[i]  =  (float)(arr[i]  *  Math.sin(0.2f  + i /  5)  *  Math.cos(0.2f  + i /  5)  *  Math.cos(0.4f  + i /  2));`
-5) Проверяется время окончания метода `System.currentTimeMillis().`
-6) В консоль выводится время работы: `System.out.println(System.currentTimeMillis() - a)`
+5) Проверяется время окончания метода 
+`System.currentTimeMillis().`
+6) В консоль выводится время работы: 
+`System.out.println(System.currentTimeMillis() - a)`
 
 Отличие первого метода от второго:
 -   Первый просто бежит по массиву и вычисляет значения.
@@ -52,6 +56,7 @@ System.arraycopy(массив-источник, откуда начинаем б
 
 По замерам времени:
 Для первого метода надо считать время только на цикл расчета:
+
 `for  (int i =  0; i < size; i++)  {  
 arr[i]  =  (float)(arr[i]  *  Math.sin(0.2f  + i /  5)  *  Math.cos(0.2f  + i /  5)  *  Math.cos(0.4f  + i /  2));  
 }`
