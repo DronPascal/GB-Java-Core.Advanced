@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.UUID;
+import com.google.gson.*;
 
 public class Client {
     public static void main(String[] args) throws IOException {
