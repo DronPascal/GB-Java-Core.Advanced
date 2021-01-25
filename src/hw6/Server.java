@@ -1,7 +1,5 @@
 package hw6;
 
-import com.google.gson.Gson;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
