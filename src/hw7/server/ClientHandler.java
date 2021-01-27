@@ -94,8 +94,12 @@ public class ClientHandler {
                         this.sendMessage(msg);
                     }
                     String nick = tokens[1];
-                    String msg = tokens[2];
-                    myServer.sendMsgToClient(this, nick, msg);
+                    StringBuilder msg = new StringBuilder();
+                    for (int i = 2; i < tokens.length; i++) {
+                        msg.append(" ");
+                        msg.append(tokens[i]);
+                    }
+                    myServer.sendMsgToClient(this, nick, msg.toString());
                     break;
                 }
             }
