@@ -39,7 +39,7 @@ public class ClientHandler {
     private void closeConnection() {
         myServer.unsubscribe(this);
         Message message = new Message();
-        message.setMessage(nick+" вышел из чата");
+        message.setMessage(nick + " вышел из чата");
         myServer.broadcastMessage(message);
         try {
             dataOutputStream.close();
@@ -84,10 +84,10 @@ public class ClientHandler {
             // /<command> <message>
             String[] tokens = message.getMessage().split("\\s");
             switch (tokens[0]) {
-                case "/end":{
+                case "/end": {
                     return;
                 }
-                case "/w":{// /w <nick> <message>
+                case "/w": {// /w <nick> <message>
                     if (tokens.length < 3) {
                         Message msg = new Message();
                         msg.setMessage("Не хватает параметров, необходимо отправить команду следующего вида: /w <ник> <сообщение>");

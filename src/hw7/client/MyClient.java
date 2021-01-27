@@ -5,6 +5,7 @@ import hw7.server.Message;
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Dimension;
 import java.io.IOException;
 
 public class MyClient extends JFrame {
@@ -18,12 +19,12 @@ public class MyClient extends JFrame {
         JPanel jPanel = new JPanel();
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
-        jPanel.setSize(300, 50);
+        jPanel.setSize(300, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(400, 400, 500, 300);
 
         JTextArea mainChat = new JTextArea();
-        mainChat.setSize(400, 250);
+        mainChat.setSize(300, 250);
 
         initLoginPanel(mainChat);
 
@@ -50,16 +51,20 @@ public class MyClient extends JFrame {
         }
 
         add(mainChat);
-        jPanel.add(send);
         jPanel.add(myMessage);
+        jPanel.add(send);
         add(jPanel);
     }
 
     private void initLoginPanel(JTextArea mainChat) {
+        JLabel loginLabel = new JLabel("Логин");
         JTextField login = new JTextField();
         login.setToolTipText("Логин");
+        login.setMaximumSize(new Dimension(1000, 20));
+        JLabel passwordLabel = new JLabel("Пароль");
         JPasswordField password = new JPasswordField();
         password.setToolTipText("Пароль");
+        password.setMaximumSize(new Dimension(1000, 20));
         JButton authButton = new JButton("Авторизоваться");
 
         JLabel authLabel = new JLabel("Offline");
@@ -70,6 +75,11 @@ public class MyClient extends JFrame {
                 try {
                     String nick = serverService.authorization(lgn, psw);
                     authLabel.setText("Online, nick " + nick);
+                    loginLabel.setVisible(false);
+                    login.setVisible(false);
+                    passwordLabel.setVisible(false);
+                    password.setVisible(false);
+                    authButton.setVisible(false);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,7 +91,9 @@ public class MyClient extends JFrame {
             }
         });
 
+        add(loginLabel);
         add(login);
+        add(passwordLabel);
         add(password);
         add(authButton);
         add(authLabel);
@@ -89,6 +101,8 @@ public class MyClient extends JFrame {
     }
 
     private void sendMessage(JTextField myMessage) {
+        if (myMessage.getText().isEmpty())
+            return;
         serverService.sendMessage(myMessage.getText());
         myMessage.setText("");
     }

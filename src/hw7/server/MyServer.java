@@ -60,6 +60,8 @@ public class MyServer {
     }
 
     public synchronized void broadcastMessage(Message message) {
+        String[] result = message.getMessage().split("\\s+");
+        if (result[0]=="/w")
         for (ClientHandler client : clients) {
             client.sendMessage(message);
         }

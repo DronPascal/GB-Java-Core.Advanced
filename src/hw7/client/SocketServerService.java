@@ -1,6 +1,6 @@
 package hw7.client;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import hw7.server.Message;
 import hw7.server.AuthMessage;
 import hw7.server.MyServer;
