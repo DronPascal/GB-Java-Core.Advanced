@@ -61,9 +61,15 @@ public class MyServer {
 
     public synchronized void broadcastMessage(Message message) {
         String[] result = message.getMessage().split("\\s+");
-        if (result[0]=="/w")
-        for (ClientHandler client : clients) {
-            client.sendMessage(message);
+        if (result[0] == "/w") {
+            for (ClientHandler client : clients) {
+                if (client.getNick() == result[1])
+                    client.sendMessage(message);
+            }
+        } else {
+            for (ClientHandler client : clients) {
+                client.sendMessage(message);
+            }
         }
     }
 

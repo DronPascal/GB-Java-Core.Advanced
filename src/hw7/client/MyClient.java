@@ -19,12 +19,15 @@ public class MyClient extends JFrame {
         JPanel jPanel = new JPanel();
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
-        jPanel.setSize(300, 500);
+        jPanel.setSize(300, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(400, 400, 500, 300);
+        setBounds(400, 400, 500, 500);
 
-        JTextArea mainChat = new JTextArea();
-        mainChat.setSize(300, 250);
+        JTextArea mainChat = new JTextArea(16, 44);
+        mainChat.setEditable(false);
+        JScrollPane scroll = new JScrollPane(mainChat);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         initLoginPanel(mainChat);
 
@@ -50,7 +53,7 @@ public class MyClient extends JFrame {
             }).start();
         }
 
-        add(mainChat);
+        add(scroll);
         jPanel.add(myMessage);
         jPanel.add(send);
         add(jPanel);
@@ -74,7 +77,7 @@ public class MyClient extends JFrame {
             if (lgn != null && psw != null && !lgn.isEmpty() && !psw.isEmpty()) {
                 try {
                     String nick = serverService.authorization(lgn, psw);
-                    authLabel.setText("Online, nick " + nick);
+                    authLabel.setText("Online, " + nick);
                     loginLabel.setVisible(false);
                     login.setVisible(false);
                     passwordLabel.setVisible(false);
