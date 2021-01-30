@@ -83,14 +83,15 @@ public class MyClient extends JFrame {
                     passwordLabel.setVisible(false);
                     password.setVisible(false);
                     authButton.setVisible(false);
+
+                    new Thread(() -> {
+                        while (true) {
+                            printToUI(mainChat, serverService.readMessages());
+                        }
+                    }).start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                new Thread(() -> {
-                    while (true) {
-                        printToUI(mainChat, serverService.readMessages());
-                    }
-                }).start();
             }
         });
 
