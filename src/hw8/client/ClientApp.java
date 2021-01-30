@@ -1,4 +1,4 @@
-package hw7.client;
+package hw8.client;
 
 public class ClientApp {
     public static void main(String[] args) {

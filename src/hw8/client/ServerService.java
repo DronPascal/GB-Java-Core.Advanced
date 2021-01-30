@@ -1,6 +1,6 @@
-package hw7.client;
+package hw8.client;
 
-import hw7.server.Message;
+import hw8.server.Message;
 
 import java.io.IOException;
 

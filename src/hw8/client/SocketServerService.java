@@ -1,9 +1,9 @@
-package hw7.client;
+package hw8.client;
 
 import com.google.gson.*;
-import hw7.server.Message;
-import hw7.server.AuthMessage;
-import hw7.server.MyServer;
+import hw8.server.Message;
+import hw8.server.AuthMessage;
+import hw8.server.MyServer;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
