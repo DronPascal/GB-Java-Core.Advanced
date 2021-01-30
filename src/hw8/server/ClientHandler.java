@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ClientHandler {
-    private final long TIMEOUT = 120;
+    private final long TIMEOUT = 2;
 
     private Socket socket;
     private MyServer myServer;
